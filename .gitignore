@@ -1,0 +1,38 @@
+# =====================
+# IntelliJ IDEA
+# =====================
+.idea/
+*.iml
+out/
+workspace.xml
+shelf/
+
+# =====================
+# Maven / Java
+# =====================
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# =====================
+# Node / Angular
+# =====================
+node_modules/
+dist/
+.angular/
+package-lock.json
+
+# =====================
+# OS Files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Misc
+# =====================
+httpRequests/
+dataSources/
+dataSources.local.xml
