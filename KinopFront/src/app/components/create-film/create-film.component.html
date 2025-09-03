@@ -1,0 +1,91 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Name"
+    formControlName="name"
+    appFocus
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="name.errors?.minlength && name.touched"
+  >Please fill name field width min length. Now {{ name.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Description"
+    formControlName="description"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="description.errors?.minlength && description.touched"
+  >Please fill description field width min length. Now {{ description.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Genre"
+    formControlName="genre"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="genre.errors?.minlength && genre.touched"
+  >Please fill genre field width min length. Now {{ genre.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Rating"
+    formControlName="rating"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="rating.errors?.minlength && rating.touched"
+  >Please fill rating field width min length. Now {{ rating.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Price"
+    formControlName="price"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="price.errors?.minlength && price.touched"
+  >Please fill price field width min length. Now {{ price.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Image Link"
+    formControlName="image"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="image.errors?.minlength && image.touched"
+  >Please fill image link field width min length. Now {{ image.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Film Video Link"
+    formControlName="video"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="video.errors?.minlength && video.touched"
+  >Please fill video link field width min length. Now {{ video.value.length }}</p>
+
+  <button
+    type="submit"
+    class="py-2 px-4 bg-blue-600 text-white"
+  >Create</button>
+</form>

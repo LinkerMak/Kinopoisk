@@ -1,0 +1,16 @@
+<div class="py-6 px-4 border rounded flex items-center flex-col mb-2">
+  <img [src]="actor.image" [alt]="actor.name" class="w-1/6 mb-2">
+  <h2 class="mb-2 text-md text-center">{{ actor.name }}</h2>
+
+  <p>{{ actor.biography }}</p>
+  <p>Actor Birthdate {{ actor.birthdate}}</p>
+
+  <button
+    class="border py-2 px-4 rounded"
+    [ngClass]="{
+    'bg-yellow-400': !details,
+    'bg-blue-400': details
+    }"
+    (click)="addActor()"
+  >Add</button>
+</div>

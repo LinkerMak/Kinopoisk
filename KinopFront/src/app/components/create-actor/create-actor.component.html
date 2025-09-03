@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Actor Name"
+    formControlName="name"
+    appFocus
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="name.errors?.minlength && name.touched"
+  >Please fill name field width min length. Now {{ name.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Actor Biography"
+    formControlName="biography"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="biography.errors?.minlength && biography.touched"
+  >Please fill biography field width min length. Now {{ biography.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Actor Birthdate"
+    formControlName="birthdate"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="birthdate.errors?.minlength && birthdate.touched"
+  >Please fill birthdate field width min length. Now {{ birthdate.value.length }}</p>
+
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Actor Image Link"
+    formControlName="image"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="image.errors?.minlength && image.touched"
+  >Please fill image link field width min length. Now {{ image.value.length }}</p>
+
+  <button
+    type="submit"
+    class="py-2 px-4 bg-blue-600 text-white"
+  >Create</button>
+</form>

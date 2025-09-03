@@ -1,0 +1,45 @@
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+  <img [src]="actor.image" [alt]="actor.name" class="w-1/6 mb-2">
+  <h2 class="mb-2 text-md text-center">{{ actor.name }}</h2>
+
+  <button
+    class="border py-2 px-4 rounded"
+    [ngClass]="{
+    'bg-yellow-400': !details,
+    'bg-blue-400': details
+    }"
+    (click)="details = !details"
+  >{{ details ? 'Hide' : 'Show' }} Details</button>
+
+  <div *ngIf="details">
+    <p>{{ actor.biography }}</p>
+    <p>Birthdate: {{ actor.birthdate }}</p>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details2,
+    'bg-blue-400': details2
+    }"
+      (click)="showFilms(actor.id)"
+    >{{ details2 ? 'Hide' : 'Show' }} Films</button>
+
+    <div *ngIf="details2">
+      <app-actors-show *ngFor="let film of actorService.films"
+                     [film]="film"></app-actors-show>
+    </div>
+
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-red-400': details3,
+    'bg-green-400': !details3
+    }"
+      (click)="deleteActor(actor.id)"
+    >DELETE</button>
+  </div>
+
+</div>
+
+

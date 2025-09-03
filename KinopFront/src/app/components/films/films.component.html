@@ -1,0 +1,121 @@
+<div class="py-4 px-6 border rounded flex items-center flex-col mb-2">
+  <img [src]="film.image" [alt]="film.name" class="w-1/6 mb-2">
+  <h2 class="mb-2 text-md text-center">{{ film.name }}</h2>
+  <p>Price: {{ film.price | currency:'RUB' }}</p>
+
+  <button
+    class="border py-2 px-4 rounded"
+    [ngClass]="{
+    'bg-yellow-400': !details,
+    'bg-blue-400': details
+    }"
+    (click)="showDetails(film.id)"
+  >{{ details ? 'Hide' : 'Show' }} Details</button>
+
+  <div *ngIf="details">
+    <p>{{ film.description }}</p>
+    <p>Age Rate: <span [ngStyle]="{fontWeight: 'bold'}">{{ film.rating }}+</span></p>
+    <p>Date Release: {{ film.dateRelease }}</p>
+    <p>Film Genre: {{ film.genre }}</p>
+    <a href="{{ film.video }}" class="text-blue-400">Watch Film</a>
+
+    <div *ngIf="flag">
+      <p>Rating {{ filmService.grade.d }}/10</p>
+    </div>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details3,
+    'bg-blue-400': details3
+    }"
+      (click)="details3=!details3"
+    >Update Film</button>
+
+    <app-update-film-modal *ngIf="details3" title="Update Film" >
+      <app-update-film></app-update-film>
+    </app-update-film-modal>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details2,
+    'bg-blue-400': details2
+    }"
+      (click)="showActors(film.id)"
+    >{{ details2 ? 'Hide' : 'Show' }} Actors</button>
+
+    <div *ngIf="details2">
+      <app-film-show *ngFor="let actor of filmService.actors"
+                [actor]="actor"></app-film-show>
+    </div>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details4,
+    'bg-blue-400': details4
+    }"
+      (click)="details4=!details4"
+    >Add News</button>
+
+    <app-create-news-modal *ngIf="details4" title="Create News">
+      <app-create-news></app-create-news>
+    </app-create-news-modal>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details5,
+    'bg-blue-400': details5
+    }"
+      (click)="showNews(film.id)"
+    >{{ details5 ? 'Hide' : 'Show' }} News</button>
+
+    <div *ngIf="details5">
+      <app-news-show *ngFor="let news of filmService.news"
+                     [news]="news"></app-news-show>
+    </div>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details6,
+    'bg-blue-400': details6
+    }"
+      (click)="details6=!details6"
+    >Add Review</button>
+
+    <app-create-review-modal *ngIf="details6" title="Create Review">
+      <app-create-review></app-create-review>
+    </app-create-review-modal>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-red-400': details7,
+    'bg-green-400': !details7
+    }"
+      (click)="deleteFilm(film.id)"
+    >DELETE</button>
+
+    <button
+      class="border py-2 px-4 rounded"
+      [ngClass]="{
+    'bg-yellow-400': !details8,
+    'bg-blue-400': details8
+    }"
+      (click)="showActorsForAdd()"
+    >{{ !details8 ? 'Add' : 'Hide Add' }} Actors</button>
+
+    <div *ngIf="details8">
+      <app-add-actor *ngFor="let actor of filmService.noAllActors"
+                     [actor]="actor"
+                     [idFilm]="film.id"
+      ></app-add-actor>
+    </div>
+
+  </div>
+
+
+</div>

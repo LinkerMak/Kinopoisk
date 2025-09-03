@@ -1,0 +1,31 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Text Review"
+    formControlName="text"
+    appFocus
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="text.errors?.minlength && text.touched"
+  >Please fill text field width min length. Now {{ text.value.length }}</p>
+
+  <input
+    type="text"
+    class="border w-full py-2 px-4 mb-2"
+    placeholder="Review Grade"
+    formControlName="grade"
+  >
+
+  <p
+    class="text-red-600 font-medium mb-2"
+    *ngIf="grade.errors?.max.min && grade.touched"
+  >Please fill grade field width min length. Now {{ grade.value.length }}</p>
+
+  <button
+    type="submit"
+    class="py-2 px-4 bg-blue-600 text-white"
+  >Create</button>
+</form>

@@ -1,0 +1,10 @@
+<div class="py-6 px-4 border rounded flex items-center flex-col mb-2">
+  <img [src]="film.image" [alt]="film.name" class="w-1/6 mb-2">
+  <h2 class="mb-2 text-md text-center">{{ film.name }}</h2>
+
+  <p>{{ film.description }}</p>
+  <p>Rate: <span [ngStyle]="{fontWeight: 'bold'}">{{ film.rating }}+</span></p>
+  <p>Date Release: {{ film.dateRelease }}</p>
+  <p>Film Genre: {{ film.genre }}</p>
+
+</div>
